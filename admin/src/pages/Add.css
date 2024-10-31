@@ -1,0 +1,12 @@
+
+.addProduct-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: start;
+    gap: 3;
+}
+
+img {
+    width: 50px;
+}
