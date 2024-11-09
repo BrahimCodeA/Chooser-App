@@ -6,9 +6,11 @@ export default function Navbar({
   setToken: (token: string) => void;
 }) {
   return (
-    <div>
-      <img src="" alt="" />
-      <button onClick={() => setToken("")}>Logout</button>
+    <div className="navbar-options">
+      <h2 className="navbar-title">Chooser ©</h2>
+      <button className="navbar-logout" onClick={() => setToken("")}>
+        Logout
+      </button>
     </div>
   );
 }

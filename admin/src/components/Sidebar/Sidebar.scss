@@ -1,57 +1,42 @@
-.app-container {
-  display: flex;
-  height: calc(100vh);
-
-  .sidebar {
-    width: 250px;
-    background-color: #1f1f1f;
+.sidebar {
+  .sidebar-menu {
+    cursor: pointer;
+    background-color: #333;
+    display: block;
+    font-size: 1.5em;
     color: white;
+    padding: 0.3em;
+  }
+
+  .sidebar-links {
     display: flex;
     flex-direction: column;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    height: calc(100vh);
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: #2f2f2f;
-    }
+    overflow: hidden;
+    background-color: #333;
 
     .sidebar-link {
-      text-decoration: none;
-      margin-top: 30px;
-      margin-left: 30px;
       color: white;
-      padding: 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-      background-color: black;
-      border: 2px solid rgb(69, 67, 67);
+      padding: 0.3em;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      background-color: #444;
+      margin: 5px 0;
 
       &:hover {
-        background-color: #3f3f3f;
+        background-color: #555;
+      }
+
+      &.active {
+        background-color: #222;
       }
     }
 
-    .sidebar-link .sidebar-icon {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.2rem;
+    &.close {
+      max-height: 0;
     }
 
-    .sidebar-link.active {
-      background-color: red;
+    &.open {
+      max-height: 500px;
     }
-  }
-
-  .content {
-    flex: 1;
-    padding: 20px;
-    background-color: #ffffff;
-    margin-left: 250px;
-    margin-top: 20px;
   }
 }
