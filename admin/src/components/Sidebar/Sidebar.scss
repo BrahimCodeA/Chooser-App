@@ -2,10 +2,14 @@
   .sidebar-menu {
     cursor: pointer;
     background-color: #333;
-    display: block;
+    display: flex;
     font-size: 1.5em;
     color: white;
     padding: 0.3em;
+
+    &:hover {
+      background-color: #444;
+    }
   }
 
   .sidebar-links {
@@ -13,12 +17,13 @@
     flex-direction: column;
     overflow: hidden;
     background-color: #333;
+    transition: 0.3s ease;
 
     .sidebar-link {
       color: white;
       padding: 0.3em;
       text-decoration: none;
-      transition: background-color 0.3s;
+      transition: 0.3s ease;
       background-color: #444;
       margin: 5px 0;
 
@@ -38,5 +43,19 @@
     &.open {
       max-height: 500px;
     }
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar-links {
+    min-height: 100vh;
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sidebar-links {
+    font-size: 1rem;
   }
 }

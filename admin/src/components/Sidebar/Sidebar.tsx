@@ -5,6 +5,7 @@ import { CiCirclePlus } from "react-icons/ci";
 import { MdOutlineListAlt } from "react-icons/md";
 import { GoChecklist } from "react-icons/go";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { IoCloseSharp } from "react-icons/io5";
 
 const Sidebar: React.FC = () => {
   const { pathname } = useLocation();
@@ -21,7 +22,11 @@ const Sidebar: React.FC = () => {
   return (
     <div className={`sidebar ${open ? "open" : "close"}`}>
       <div className="sidebar-menu">
-        <GiHamburgerMenu onClick={handleClick} className="hamburger-menu" />
+        {open ? (
+          <IoCloseSharp onClick={handleClick} className="hamburger-menu" />
+        ) : (
+          <GiHamburgerMenu onClick={handleClick} className="hamburger-menu" />
+        )}
       </div>
       {open && (
         <div className="sidebar-links">
