@@ -1,7 +1,7 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
-export default function Orders({ token }: { token: string}) {
+export default function Orders({ token }: { token: string }) {
   const orders = useSelector((state: RootState) => state.order.orders);
 
   return (

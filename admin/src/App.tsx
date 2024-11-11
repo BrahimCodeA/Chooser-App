@@ -4,7 +4,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Add from "./pages/Add/Add";
 import List from "./pages/List/List";
-import Orders from "./pages/Orders";
+import Orders from "./pages/Orders/Orders";
 import { useEffect, useState } from "react";
 import Login from "./components/Login/Login";
 import { ToastContainer } from "react-toastify";
@@ -43,7 +43,7 @@ export default function App() {
                   Bienvenue sur la page d'administration de l'application de
                   gestion de produits.
                   <br />
-                  Choisissez une action dans le menu de gauche.
+                  Choisissez une action dans le menu.
                 </p>
               )}
               <Routes>
