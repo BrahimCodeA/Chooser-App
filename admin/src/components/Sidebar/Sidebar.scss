@@ -1,14 +1,15 @@
 .sidebar {
   .sidebar-menu {
     cursor: pointer;
-    background-color: #333;
+    background-color: #444;
     display: flex;
     font-size: 1.5em;
     color: white;
     padding: 0.3em;
 
-    &:hover {
-      background-color: #444;
+    .hamburger-menu:hover {
+      color: #333;
+      transition: 0.3s;
     }
   }
 
@@ -17,15 +18,22 @@
     flex-direction: column;
     overflow: hidden;
     background-color: #333;
-    transition: 0.3s ease;
+    animation: fadeIn 1s ease;
+
+    .sidebar-icon {
+      display: flex;
+      align-items: center;
+      padding: 0.3em;
+      gap: 0.5em;
+    }
 
     .sidebar-link {
       color: white;
       padding: 0.3em;
       text-decoration: none;
-      transition: 0.3s ease;
       background-color: #444;
       margin: 5px 0;
+      animation: fadeIn 1s ease;
 
       &:hover {
         background-color: #555;
@@ -34,14 +42,6 @@
       &.active {
         background-color: #222;
       }
-    }
-
-    &.close {
-      max-height: 0;
-    }
-
-    &.open {
-      max-height: 500px;
     }
   }
 }

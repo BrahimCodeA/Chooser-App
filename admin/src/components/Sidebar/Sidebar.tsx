@@ -20,7 +20,7 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <div className={`sidebar ${open ? "open" : "close"}`}>
+    <div className="sidebar">
       <div className="sidebar-menu">
         {open ? (
           <IoCloseSharp onClick={handleClick} className="hamburger-menu" />
