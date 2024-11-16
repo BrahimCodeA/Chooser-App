@@ -1,11 +1,9 @@
-// Déclaration des variables
 $primary-color: #333;
 $secondary-color: white;
 $accent-color: rgba(255, 255, 255, 0.7);
 $transition-duration: 0.5s;
 $footer-padding: 1rem;
 
-// Footer général
 .footer {
   background-color: $primary-color;
   color: $secondary-color;
@@ -29,7 +27,6 @@ $footer-padding: 1rem;
     cursor: pointer;
   }
 
-  // Sous rubrique
   &-sous-rubrique {
     display: block;
     opacity: 1;
@@ -66,16 +63,15 @@ $footer-padding: 1rem;
   }
 }
 
-// Liens utiles
 .footer-links-utils {
   color: $secondary-color;
   text-decoration: none;
+  font-size: 0.875rem;
   &:hover {
     text-decoration: underline;
   }
 }
 
-// Réseaux sociaux
 .social-media {
   display: flex;
 
@@ -87,5 +83,77 @@ $footer-padding: 1rem;
     &:hover {
       opacity: 0.8;
     }
+  }
+}
+
+.footer {
+  font-size: 0.875rem;
+
+  .footer-section {
+    font-size: 0.875rem;
+  }
+
+  .footer-rubrique-title {
+    font-size: 1rem;
+  }
+
+  .footer-plus {
+    font-size: 1.25rem;
+  }
+
+  .footer-items {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer {
+    font-size: 1rem;
+
+    .footer-section {
+      font-size: 1rem;
+    }
+
+    .footer-rubrique-title {
+      font-size: 1.25rem;
+    }
+
+    .footer-plus {
+      font-size: 1.5rem;
+    }
+
+    .footer-items {
+      font-size: 1rem;
+    }
+  }
+
+  .social-icon {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    font-size: 1.125rem;
+
+    .footer-section {
+      font-size: 1.125rem;
+    }
+
+    .footer-rubrique-title {
+      font-size: 1.5rem;
+    }
+
+    .footer-plus {
+      font-size: 1.75rem;
+    }
+
+    .footer-items {
+      font-size: 1.125rem;
+    }
+  }
+
+  .social-icon {
+    font-size: 2rem;
   }
 }

@@ -1,4 +1,3 @@
-// Footer.tsx
 import "./Footer.scss";
 import { useState } from "react";
 import FooterSection from "../ui/FooterSection";
