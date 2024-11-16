@@ -1,12 +1,10 @@
-import { MdOutlineClose } from "react-icons/md";
-import ReactDOM from "react-dom";
 import "./ModalForm.scss";
 
 type ModalFormProps = {
   onClose: () => void;
   title: string;
   buttonText: string;
-  inputs: string[];
+  inputs: { type: string; placeholder: string }[];
   footerText: string;
   footerActionText: string;
   onFooterAction: () => void;
@@ -21,16 +19,21 @@ export default function ModalForm({
   footerActionText,
   onFooterAction,
 }: ModalFormProps) {
-  return ReactDOM.createPortal(
+  return (
     <div className="modal-overlay">
       <div className="modal-content">
         <button className="icon-close" onClick={onClose}>
-          <MdOutlineClose />
+          ×
         </button>
         <h2>{title}</h2>
         <form>
-          {inputs.map((placeholder, index) => (
-            <input key={index} type="text" placeholder={placeholder} required />
+          {inputs.map((input, index) => (
+            <input
+              key={index}
+              type={input.type}
+              placeholder={input.placeholder}
+              required
+            />
           ))}
           <button type="submit">{buttonText}</button>
         </form>
@@ -39,7 +42,6 @@ export default function ModalForm({
           <span onClick={onFooterAction}>{footerActionText}</span>
         </p>
       </div>
-    </div>,
-    document.body
+    </div>
   );
 }

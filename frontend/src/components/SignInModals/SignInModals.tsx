@@ -1,17 +1,20 @@
-import ModalForm from "../ui/ModalForm";
+import ModalForm from "../ui/ModalForm/ModalForm";
 
-type SignInProps = {
+type Props = {
   onClose: () => void;
   openSignUp: () => void;
 };
 
-export default function SignInModals({ onClose, openSignUp }: SignInProps) {
+export default function SignInModals({ onClose, openSignUp }: Props) {
   return (
     <ModalForm
       onClose={onClose}
       title="Connexion"
       buttonText="Se connecter"
-      inputs={["chooser@gmail.com", "Mot de passe"]}
+      inputs={[
+        { type: "email", placeholder: "chooser@gmail.com" },
+        { type: "password", placeholder: "Mot de passe" },
+      ]}
       footerText="Pas de compte ?"
       footerActionText="Inscrivez-vous"
       onFooterAction={openSignUp}

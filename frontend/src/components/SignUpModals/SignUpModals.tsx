@@ -1,20 +1,20 @@
-import ModalForm from "../ui/ModalForm";
+import ModalForm from "../ui/ModalForm/ModalForm";
 
-type SignUpProps = {
+type Props = {
   onClose: () => void;
   openSignIn: () => void;
 };
 
-export default function SignUpModals({ onClose, openSignIn }: SignUpProps) {
+export default function SignUpModals({ onClose, openSignIn }: Props) {
   return (
     <ModalForm
       onClose={onClose}
       title="S'inscrire"
       buttonText="Créer un compte"
       inputs={[
-        "chooser@gmail.com",
-        "Mot de passe",
-        "Confirmer le mot de passe",
+        { type: "email", placeholder: "chooser@gmail.com" },
+        { type: "password", placeholder: "Mot de passe" },
+        { type: "password", placeholder: "Confirmer le mot de passe" },
       ]}
       footerText="Déjà un compte ?"
       footerActionText="Connectez-vous"
