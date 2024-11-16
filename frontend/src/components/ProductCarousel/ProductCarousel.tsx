@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./ProductCarousel.css";
+import "./ProductCarousel.scss";
 
 const products = [
   { id: 1, name: "Product 1", image: "https://via.placeholder.com/150" },
@@ -25,78 +25,78 @@ export default function ProductCarousel() {
 
   return (
     <>
-    <div className="carousel">
+      <div className="carousel">
         <h2>Les nouveautés</h2>
-      <button className="carousel-button" onClick={prevProduct}>
-        {"<"}
-      </button>
-      <div className="carousel-item">
-        <img
-          src={products[currentIndex].image}
-          alt={products[currentIndex].name}
-        />
-        <p>{products[currentIndex].name}</p>
+        <button className="carousel-button" onClick={prevProduct}>
+          {"<"}
+        </button>
+        <div className="carousel-item">
+          <img
+            src={products[currentIndex].image}
+            alt={products[currentIndex].name}
+          />
+          <p>{products[currentIndex].name}</p>
+        </div>
+        <button className="carousel-button" onClick={nextProduct}>
+          {">"}
+        </button>
       </div>
-      <button className="carousel-button" onClick={nextProduct}>
-        {">"}
-      </button>
-    </div>
 
-    <div className="carousel">
+      <div className="carousel">
         <h2>Homme</h2>
-      <button className="carousel-button" onClick={prevProduct}>
-        {"<"}
-      </button>
-      <div className="carousel-item">
-        <img
-          src={products[currentIndex].image}
-          alt={products[currentIndex].name}
-        />
-        <p>{products[currentIndex].name}</p>
+        <button className="carousel-button" onClick={prevProduct}>
+          {"<"}
+        </button>
+        <div className="carousel-item">
+          <img
+            src={products[currentIndex].image}
+            alt={products[currentIndex].name}
+          />
+          <p>{products[currentIndex].name}</p>
+        </div>
+        <button className="carousel-button" onClick={nextProduct}>
+          {">"}
+        </button>
       </div>
-      <button className="carousel-button" onClick={nextProduct}>
-        {">"}
-      </button>
-    </div>
 
-    <div className="carousel">
+      <div className="carousel">
         <h2>Femme</h2>
-      <button className="carousel-button" onClick={prevProduct}>
-        {"<"}
-      </button>
-      <div className="carousel-item">
-        <img
-          src={products[currentIndex].image}
-          alt={products[currentIndex].name}
-        />
-        <p>{products[currentIndex].name}</p>
+        <button className="carousel-button" onClick={prevProduct}>
+          {"<"}
+        </button>
+        <div className="carousel-item">
+          <img
+            src={products[currentIndex].image}
+            alt={products[currentIndex].name}
+          />
+          <p>{products[currentIndex].name}</p>
+        </div>
+        <button className="carousel-button" onClick={nextProduct}>
+          {">"}
+        </button>
       </div>
-      <button className="carousel-button" onClick={nextProduct}>
-        {">"}
-      </button>
-    </div>
 
-    <div className="solde">
+      <div className="solde">
         <h2>Solde -50% pour ce modèle</h2>
         <img src="" alt="" />
-    </div>
-
-    <div className="carousel">
-        <h2>Enfants</h2>
-      <button className="carousel-button" onClick={prevProduct}>
-        {"<"}
-      </button>
-      <div className="carousel-item">
-        <img
-          src={products[currentIndex].image}
-          alt={products[currentIndex].name}
-        />
-        <p>{products[currentIndex].name}</p>
       </div>
-      <button className="carousel-button" onClick={nextProduct}>
-        {">"}
-      </button>
-    </div>
+
+      <div className="carousel">
+        <h2>Enfants</h2>
+        <button className="carousel-button" onClick={prevProduct}>
+          {"<"}
+        </button>
+        <div className="carousel-item">
+          <img
+            src={products[currentIndex].image}
+            alt={products[currentIndex].name}
+          />
+          <p>{products[currentIndex].name}</p>
+        </div>
+        <button className="carousel-button" onClick={nextProduct}>
+          {">"}
+        </button>
+      </div>
     </>
   );
 }

@@ -1,0 +1,65 @@
+$primary-color: #333;
+$secondary-color: #555;
+$button-bg-color: #fff;
+$button-hover-color: #555;
+$icon-size: 2rem;
+$modal-bg-color: #222;
+$modal-padding: 0.7rem;
+$border-radius: 0.5rem;
+
+.avatar-modals {
+  position: relative;
+  cursor: pointer;
+}
+
+.user-icon {
+  font-size: $icon-size;
+  color: $primary-color;
+}
+
+.avatar-modals-links {
+  position: absolute;
+  background-color: $modal-bg-color;
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 0.5rem;
+  z-index: 1;
+  padding: $modal-padding;
+  border-radius: $border-radius;
+}
+
+.avatar-modals-links .btn-signin,
+.avatar-modals-links .btn-signup,
+.avatar-modals-links .btn-account {
+  font-family: "Inter", sans-serif;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.avatar-modals-links .btn-signin {
+  color: white;
+  background-color: $secondary-color;
+}
+
+.avatar-modals-links .btn-signin:hover {
+  background-color: $primary-color;
+}
+
+.avatar-modals-links .btn-signup {
+  color: $secondary-color;
+  background-color: $button-bg-color;
+}
+
+.avatar-modals-links .btn-signup:hover,
+.avatar-modals-links .btn-account:hover {
+  color: $button-bg-color;
+  background-color: $secondary-color;
+}

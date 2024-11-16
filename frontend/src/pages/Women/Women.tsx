@@ -1,7 +1,5 @@
-import "./Women.css";
+import "./Women.scss";
 
 export default function Women() {
-  return (
-    <div>Women</div>
-  )
+  return <div>Women</div>;
 }

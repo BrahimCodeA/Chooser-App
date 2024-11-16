@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import "./SignInModals.css";
+import "./SignInModals.scss";
 import { MdOutlineClose } from "react-icons/md";
 
 type Props = {
@@ -20,8 +20,8 @@ export default function SignInModals({ onClose, openSignUp }: Props) {
           <input type="password" placeholder="Mot de passe" required />
           <button type="submit">Se connecter</button>
         </form>
-        <p className="signup-prompt">Pas de compte ? 
-        <span onClick={openSignUp}>Inscrivez-vous</span>
+        <p className="signup-prompt">
+          Pas de compte ?<span onClick={openSignUp}>Inscrivez-vous</span>
         </p>
       </div>
     </div>,

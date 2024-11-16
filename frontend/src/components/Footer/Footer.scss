@@ -1,0 +1,91 @@
+// Déclaration des variables
+$primary-color: #333;
+$secondary-color: white;
+$accent-color: rgba(255, 255, 255, 0.7);
+$transition-duration: 0.5s;
+$footer-padding: 1rem;
+
+// Footer général
+.footer {
+  background-color: $primary-color;
+  color: $secondary-color;
+
+  &-container {
+    padding: $footer-padding;
+  }
+
+  &-section {
+    padding: $footer-padding;
+    border-bottom: 1px solid $secondary-color;
+
+    .rubrique {
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+  }
+
+  &-rubrique-title {
+    cursor: pointer;
+  }
+
+  // Sous rubrique
+  &-sous-rubrique {
+    display: block;
+    opacity: 1;
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height $transition-duration ease,
+      opacity $transition-duration ease;
+    color: $accent-color;
+
+    &-hidden {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height $transition-duration ease,
+        opacity $transition-duration ease;
+    }
+  }
+
+  &-plus {
+    color: $secondary-color;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  &-items {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &-bottom {
+    margin-top: 1rem;
+    text-align: center;
+  }
+}
+
+// Liens utiles
+.footer-links-utils {
+  color: $secondary-color;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Réseaux sociaux
+.social-media {
+  display: flex;
+
+  .social-icon {
+    margin-right: 1rem;
+    color: $secondary-color;
+    font-size: 1.5rem;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
