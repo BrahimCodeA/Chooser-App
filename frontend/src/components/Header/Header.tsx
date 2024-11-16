@@ -6,7 +6,7 @@ import { useState } from "react";
 import SearchComponent from "../Search/SearchComponent";
 import MenuComponent from "../Menu/MenuComponent";
 import { Link } from "react-router-dom";
-import Modals from "../Modals/Modals";
+import Modals from "../AuthMenu/AuthMenu";
 import { GrDeliver } from "react-icons/gr";
 
 export default function Header() {

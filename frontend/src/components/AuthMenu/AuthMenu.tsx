@@ -1,15 +1,16 @@
-import "./Modals.scss";
+import "./AuthMenu.scss";
 import { useState } from "react";
 import { VscAccount } from "react-icons/vsc";
 import { RxAvatar } from "react-icons/rx";
 import { FaSignInAlt, FaUserPlus } from "react-icons/fa";
+import AuthLinksButton from "../ui/AuthLinksButton";
 import SignInModals from "../SignInModals/SignInModals";
 import SignUpModals from "../SignUpModals/SignUpModals";
 import { Link } from "react-router-dom";
 
 type ModalType = "signIn" | "signUp" | null;
 
-export default function Modals() {
+export default function AuthMenu() {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [activeModal, setActiveModal] = useState<ModalType>(null);
 
@@ -34,12 +35,18 @@ export default function Modals() {
                 Mon profil <VscAccount />
               </button>
             </Link>
-            <button className="btn-signin" onClick={() => openModal("signIn")}>
-              Connexion <FaSignInAlt />
-            </button>
-            <button className="btn-signup" onClick={() => openModal("signUp")}>
-              Inscription <FaUserPlus />
-            </button>
+            <AuthLinksButton
+              title="Connexion"
+              icon={<FaSignInAlt />}
+              style="btn-signin"
+              onClick={() => openModal("signIn")}
+            />
+            <AuthLinksButton
+              title="Inscription"
+              icon={<FaUserPlus />}
+              style="btn-signup"
+              onClick={() => openModal("signUp")}
+            />
           </div>
         )}
       </div>
