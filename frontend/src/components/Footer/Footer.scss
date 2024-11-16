@@ -51,6 +51,13 @@ $footer-padding: 1rem;
     cursor: pointer;
   }
 
+  &-items,
+  .footer-links-utils,
+  .social-icon {
+    font-size: 1.3rem;
+    color: $secondary-color;
+  }
+
   &-items {
     display: flex;
     align-items: center;
@@ -64,9 +71,7 @@ $footer-padding: 1rem;
 }
 
 .footer-links-utils {
-  color: $secondary-color;
   text-decoration: none;
-  font-size: 0.875rem;
   &:hover {
     text-decoration: underline;
   }
@@ -78,8 +83,6 @@ $footer-padding: 1rem;
   .social-icon {
     margin-right: 1rem;
     color: $secondary-color;
-    font-size: 1.5rem;
-
     &:hover {
       opacity: 0.8;
     }
@@ -87,22 +90,24 @@ $footer-padding: 1rem;
 }
 
 .footer {
-  font-size: 0.875rem;
+  font-size: 1.1rem;
 
   .footer-section {
-    font-size: 0.875rem;
+    font-size: 1.1rem;
   }
 
   .footer-rubrique-title {
-    font-size: 1rem;
+    font-size: 1.4rem;
   }
 
   .footer-plus {
     font-size: 1.25rem;
   }
 
-  .footer-items {
-    font-size: 0.875rem;
+  .footer-items,
+  .footer-links-utils,
+  .social-icon {
+    font-size: 1.1rem;
   }
 }
 
@@ -122,13 +127,19 @@ $footer-padding: 1rem;
       font-size: 1.5rem;
     }
 
-    .footer-items {
+    .footer-items,
+    .footer-links-utils,
+    .social-icon {
       font-size: 1rem;
     }
   }
 
   .social-icon {
     font-size: 1.75rem;
+  }
+
+  .footer-bottom {
+    font-size: 1.3rem;
   }
 }
 
@@ -137,7 +148,7 @@ $footer-padding: 1rem;
     font-size: 1.125rem;
 
     .footer-section {
-      font-size: 1.125rem;
+      font-size: 1.3rem;
     }
 
     .footer-rubrique-title {
@@ -148,12 +159,18 @@ $footer-padding: 1rem;
       font-size: 1.75rem;
     }
 
-    .footer-items {
-      font-size: 1.125rem;
+    .footer-items,
+    .footer-links-utils,
+    .social-icon {
+      font-size: 1.3rem;
     }
   }
 
   .social-icon {
     font-size: 2rem;
+  }
+
+  .footer-bottom {
+    font-size: 1.5rem;
   }
 }

@@ -3,7 +3,7 @@ import { useState } from "react";
 import FooterSection from "../ui/FooterSection";
 import { MdMarkEmailUnread } from "react-icons/md";
 import { BsFillTelephoneFill } from "react-icons/bs";
-import { FaFacebookF } from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 
 export default function Footer() {
@@ -70,6 +70,11 @@ export default function Footer() {
             <li>
               <a className="social-icon" href="https://instagram.com">
                 <RiInstagramFill />
+              </a>
+            </li>
+            <li>
+              <a className="social-icon" href="https://linkedin.com">
+                <FaLinkedinIn />
               </a>
             </li>
           </ul>
