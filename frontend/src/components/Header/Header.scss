@@ -70,3 +70,9 @@ $highlight-color: #3498db;
     }
   }
 }
+
+@media (min-width: 1024px) {
+  .menu-icon {
+    display: none !important;
+  }
+}
