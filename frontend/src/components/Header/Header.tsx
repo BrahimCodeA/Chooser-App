@@ -2,16 +2,31 @@ import "./Header.scss";
 import { BiSearchAlt } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { CiShoppingBasket } from "react-icons/ci";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchComponent from "../Search/SearchComponent";
 import MenuComponent from "../Menu/MenuComponent";
 import { Link } from "react-router-dom";
 import Modals from "../AuthMenu/AuthMenu";
 import { GrDeliver } from "react-icons/gr";
 
+const useIsDesktop = (): boolean => {
+  const [isDesktop, setIsDesktop] = useState<boolean>(
+    window.innerWidth >= 1024
+  );
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return isDesktop;
+};
+
 export default function Header() {
   const [openSearch, setOpenSearch] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const isDesktop = useIsDesktop();
 
   const handleSearchClick = () => {
     setOpenSearch(!openSearch);
@@ -29,6 +44,13 @@ export default function Header() {
             CHOOSE
           </a>
         </div>
+
+        {isDesktop && (
+          <div className="desktop-menu">
+            <MenuComponent onCloseMenu={handleMenuClick} />
+          </div>
+        )}
+
         <div className="icons">
           {openSearch ? (
             <div className={`search-icon ${openSearch ? "show" : ""}`}>
@@ -37,15 +59,21 @@ export default function Header() {
           ) : (
             <BiSearchAlt className="search-icon" onClick={handleSearchClick} />
           )}
+
           <Modals />
           <Link to={"/cart"}>
             <CiShoppingBasket className="panier-icon" />
           </Link>
-          {!openMenu ? (
-            <RxHamburgerMenu className="menu-icon" onClick={handleMenuClick} />
-          ) : (
-            <MenuComponent onCloseMenu={handleMenuClick} />
-          )}
+
+          {!isDesktop &&
+            (!openMenu ? (
+              <RxHamburgerMenu
+                className="menu-icon"
+                onClick={handleMenuClick}
+              />
+            ) : (
+              <MenuComponent onCloseMenu={handleMenuClick} />
+            ))}
         </div>
       </nav>
 
@@ -53,8 +81,8 @@ export default function Header() {
         <nav className="navbar-2">
           <p>
             <GrDeliver className="navbar2-icon" />
-            <strong className="delivery-text">Livraison gratuite </strong> dans
-            toute la France.{" "}
+            <strong className="delivery-text">Livraison gratuite</strong> dans
+            toute la France.
           </p>
         </nav>
       </div>

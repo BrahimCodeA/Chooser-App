@@ -16,27 +16,27 @@ export default function MenuComponent({ onCloseMenu }: MenuComponentProps) {
         <RxCross1 />
       </div>
       <ul className="links-pages">
-        <li>
+        <li className="link">
           <Link to="/men" onClick={onCloseMenu}>
-            Homme <IoIosArrowForward />
+            Homme <IoIosArrowForward className="arrow-link" />
           </Link>
         </li>
-        <li>
+        <li className="link">
           <Link to="/women" onClick={onCloseMenu}>
-            Femme <IoIosArrowForward />
+            Femme <IoIosArrowForward className="arrow-link" />
           </Link>
         </li>
-        <li>
+        <li className="link">
           <Link to="kids" onClick={onCloseMenu}>
-            Enfant <IoIosArrowForward />
+            Enfant <IoIosArrowForward className="arrow-link" />
           </Link>
         </li>
       </ul>
       <ul className="icon-marques">
-        <li>
+        <li className="marque">
           <SiJordan /> Jordan
         </li>
-        <li>
+        <li className="marque">
           <SiNike /> Nike
         </li>
       </ul>
