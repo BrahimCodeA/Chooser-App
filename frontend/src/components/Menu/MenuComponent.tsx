@@ -1,36 +1,43 @@
 import "./MenuComponent.scss";
 import { RxCross1 } from "react-icons/rx";
-import { IoIosArrowForward } from "react-icons/io";
 import { SiJordan } from "react-icons/si";
 import { SiNike } from "react-icons/si";
-import { Link } from "react-router-dom";
+import NavbarLinks from "../ui/NavbarLinks";
 
-interface MenuComponentProps {
+const links = [
+  {
+    link: "/men",
+    title: "Homme",
+  },
+  {
+    link: "/women",
+    title: "Femme",
+  },
+  {
+    link: "/kid",
+    title: "Enfant",
+  },
+];
+
+export default function MenuComponent({
+  onCloseMenu,
+}: {
   onCloseMenu: () => void;
-}
-
-export default function MenuComponent({ onCloseMenu }: MenuComponentProps) {
+}) {
   return (
     <div className="menu-container">
       <div className="icon-menu-closed" onClick={onCloseMenu}>
         <RxCross1 />
       </div>
       <ul className="links-pages">
-        <li className="link">
-          <Link to="/men" onClick={onCloseMenu}>
-            Homme <IoIosArrowForward className="arrow-link" />
-          </Link>
-        </li>
-        <li className="link">
-          <Link to="/women" onClick={onCloseMenu}>
-            Femme <IoIosArrowForward className="arrow-link" />
-          </Link>
-        </li>
-        <li className="link">
-          <Link to="kids" onClick={onCloseMenu}>
-            Enfant <IoIosArrowForward className="arrow-link" />
-          </Link>
-        </li>
+        {links.map((link, index) => (
+          <NavbarLinks
+            key={index}
+            link={link.link}
+            title={link.title}
+            onCloseMenu={onCloseMenu}
+          />
+        ))}
       </ul>
       <ul className="icon-marques">
         <li className="marque">
