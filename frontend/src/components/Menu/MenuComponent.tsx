@@ -3,6 +3,7 @@ import { RxCross1 } from "react-icons/rx";
 import { SiJordan } from "react-icons/si";
 import { SiNike } from "react-icons/si";
 import NavbarLinks from "../ui/NavbarLinks";
+import BrandNavIcon from "../ui/BrandNavIcon";
 
 const links = [
   {
@@ -17,6 +18,11 @@ const links = [
     link: "/kid",
     title: "Enfant",
   },
+];
+
+const brands = [
+  { brandIcon: <SiJordan />, brandName: "Jordan" },
+  { brandIcon: <SiNike />, brandName: "Nike" },
 ];
 
 export default function MenuComponent({
@@ -39,13 +45,14 @@ export default function MenuComponent({
           />
         ))}
       </ul>
-      <ul className="icon-marques">
-        <li className="marque">
-          <SiJordan /> Jordan
-        </li>
-        <li className="marque">
-          <SiNike /> Nike
-        </li>
+      <ul className="icon-brands">
+        {brands.map((brand, index) => (
+          <BrandNavIcon
+            key={index}
+            brandIcon={brand.brandIcon}
+            brandName={brand.brandName}
+          />
+        ))}
       </ul>
     </div>
   );
