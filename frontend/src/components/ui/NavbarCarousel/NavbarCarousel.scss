@@ -1,0 +1,32 @@
+.navbar-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red; // Couleur secondaire
+  color: white;
+  padding: red;
+  text-align: center;
+  font-size: red;
+
+  .navbar2-icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    color: red; // Couleur primaire
+  }
+
+  .navbar-carousel {
+    flex: 1; // Le carousel occupe tout l'espace restant
+    text-align: center;
+
+    .carousel-message {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+
+  .delivery-text {
+    font-weight: bold;
+    margin-right: 0.3rem;
+  }
+}
