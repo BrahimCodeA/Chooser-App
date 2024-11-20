@@ -7,7 +7,7 @@ import SearchComponent from "../Search/SearchComponent";
 import MenuComponent from "../Menu/MenuComponent";
 import { Link } from "react-router-dom";
 import Modals from "../AuthMenu/AuthMenu";
-import { GrDeliver } from "react-icons/gr";
+import NavbarCarousel from "../ui/NavbarCarousel/NavbarCarousel";
 
 const useIsDesktop = (): boolean => {
   const [isDesktop, setIsDesktop] = useState<boolean>(
@@ -61,6 +61,7 @@ export default function Header() {
           )}
 
           <Modals />
+
           <Link to={"/cart"}>
             <CiShoppingBasket className="panier-icon" />
           </Link>
@@ -77,15 +78,7 @@ export default function Header() {
         </div>
       </nav>
 
-      <div>
-        <nav className="navbar-2">
-          <p>
-            <GrDeliver className="navbar2-icon" />
-            <strong className="delivery-text">Livraison gratuite</strong> dans
-            toute la France.
-          </p>
-        </nav>
-      </div>
+      <NavbarCarousel />
     </header>
   );
 }
