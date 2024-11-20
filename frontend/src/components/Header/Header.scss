@@ -46,31 +46,6 @@ $highlight-color: #3498db;
   }
 }
 
-.navbar-2 {
-  background-color: $secondary-color;
-  font-size: $font-size-medium;
-  padding: $spacing-small;
-  text-align: center;
-
-  p {
-    font-weight: normal;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .navbar2-icon {
-      font-size: 1.5rem;
-      margin-right: 0.5rem;
-      color: $primary-color;
-    }
-
-    .delivery-text {
-      font-weight: bold;
-      margin-right: 0.3rem;
-    }
-  }
-}
-
 @media (min-width: 1024px) {
   .menu-icon {
     display: none !important;
