@@ -6,18 +6,9 @@ import NavbarLinks from "../ui/NavbarLinks";
 import BrandNavIcon from "../ui/BrandNavIcon";
 
 const links = [
-  {
-    link: "/men",
-    title: "Homme",
-  },
-  {
-    link: "/women",
-    title: "Femme",
-  },
-  {
-    link: "/kid",
-    title: "Enfant",
-  },
+  { link: "/men", title: "Homme" },
+  { link: "/women", title: "Femme" },
+  { link: "/kid", title: "Enfant" },
 ];
 
 const brands = [
