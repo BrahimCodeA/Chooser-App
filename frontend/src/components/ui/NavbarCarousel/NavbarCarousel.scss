@@ -1,32 +1,63 @@
+/* Styles généraux pour mobile */
 .navbar-2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: red; // Couleur secondaire
+  background-color: #777;
   color: white;
-  padding: red;
   text-align: center;
-  font-size: red;
+  font-weight: semi-bold;
+  cursor: pointer;
+  transition: 0.3s;
 
-  .navbar2-icon {
-    font-size: 1.5rem;
-    margin-right: 0.5rem;
-    color: red; // Couleur primaire
-  }
+  .navbar2-items {
+    display: block; /* En mode mobile, les items sont affichés en bloc */
+    justify-content: center;
+    align-items: center;
+    margin-left: 0; /* Pas de marge gauche sur mobile */
+    border-right: none; /* Pas de bordure à droite sur mobile */
+    padding: 10px 0; /* Un peu plus de padding vertical sur mobile */
+    font-size: 10px;
 
-  .navbar-carousel {
-    flex: 1; // Le carousel occupe tout l'espace restant
-    text-align: center;
-
-    .carousel-message {
-      font-size: 1.2rem;
+    svg {
+      margin-right: 5px;
+      color: rgb(192, 191, 191);
       font-weight: bold;
-      text-transform: uppercase;
     }
   }
+}
 
-  .delivery-text {
-    font-weight: bold;
-    margin-right: 0.3rem;
+/* Responsive pour Tablette */
+@media (min-width: 768px) {
+  .navbar-2 {
+    padding: 5px; /* Ajouter un peu de padding pour les tablettes */
+
+    .navbar2-items {
+      display: flex; /* Passer en flex pour les tablettes */
+      margin-left: 10px; /* Ajout d'une marge gauche */
+      border-right: 1px solid white; /* Revenir à la bordure droite sur tablette */
+      padding: 0 15px; /* Ajouter plus d'espace horizontal */
+
+      svg {
+        margin-right: 10px; /* Ajouter un peu plus d'espace entre l'icône et le texte */
+        font-size: 24px; /* Augmenter légèrement la taille des icônes */
+      }
+    }
+  }
+}
+
+/* Responsive pour Desktop */
+@media (min-width: 1024px) {
+  .navbar-2 {
+    padding: 5px; /* Padding plus large pour une meilleure présentation sur desktop */
+
+    .navbar2-items {
+      margin-left: 20px; /* Marge plus grande à gauche */
+      border-right: 1px solid white; /* Maintenir la bordure à droite sur desktop */
+      padding: 0 20px; /* Padding plus large */
+      font-size: 14px;
+
+      svg {
+        margin-right: 15px; /* Espacement plus important entre les icônes et le texte */
+        font-size: 20px; /* Taille des icônes encore plus grande pour desktop */
+      }
+    }
   }
 }
