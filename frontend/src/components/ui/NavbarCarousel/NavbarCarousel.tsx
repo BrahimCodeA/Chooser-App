@@ -34,14 +34,14 @@ const titles = [
 
 export default function NavbarCarousel() {
   const settings = {
-    dots: false, // Désactiver la pagination
-    infinite: true, // Défilement infini
-    speed: 5000, // Vitesse de transition
-    slidesToShow: 3, // Nombre d'éléments visibles à la fois
-    slidesToScroll: 1, // Nombre d'éléments à défiler à chaque transition
-    autoplay: true, // Activer l'autoplay
-    autoplaySpeed: 0, // Défilement sans pause (délai entre les slides)
-    arrows: false, // Désactiver les flèches de navigation
+    dots: false,
+    infinite: true,
+    speed: 5000,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 0,
+    arrows: false,
   };
 
   return (
