@@ -7,7 +7,7 @@ import SearchComponent from "../Search/SearchComponent";
 import MenuComponent from "../Menu/MenuComponent";
 import { Link } from "react-router-dom";
 import Modals from "../AuthMenu/AuthMenu";
-import NavbarCarousel from "../ui/NavbarCarousel/NavbarCarousel";
+import NavbarCarousel from "../NavbarCarousel/NavbarCarousel";
 
 const useIsDesktop = (): boolean => {
   const [isDesktop, setIsDesktop] = useState<boolean>(
