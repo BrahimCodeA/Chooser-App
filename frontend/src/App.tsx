@@ -8,6 +8,7 @@ import Profile from "./pages/Profile/Profile";
 import Men from "./pages/Men/Men";
 import Women from "./pages/Women/Women";
 import Kid from "./pages/Kid/Kid";
+import ScrollUp from "./components/ScrollUp/ScrollUp";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
+      <ScrollUp />
     </BrowserRouter>
   );
 }
