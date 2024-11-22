@@ -36,7 +36,7 @@ export default function NavbarCarousel() {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 10000,
+    speed: 7500,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
