@@ -1,41 +1,42 @@
-$primary-color: black;
-$secondary-color: #777;
-$font-size-large: 2rem;
-$font-size-medium: 1.2rem;
-$spacing-small: 0.5rem;
-$spacing-medium: 1rem;
-$font-weight-light: 500;
-$highlight-color: #3498db;
-
-.wrapper {
-  position: relative;
-}
+$primary-color: #333;
+$highlight-color: #f1c40f;
+$spacing-small: 10px;
+$spacing-medium: 20px;
 
 .navbar-1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+  color: $primary-color;
+  padding: $spacing-medium;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $spacing-small;
 
   .logo {
-    font-size: 2.5rem;
-    margin-left: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: $spacing-small;
     color: $primary-color;
-    font-weight: $font-weight-light;
     text-decoration: none;
   }
 
   .icons {
     display: flex;
     align-items: center;
-    gap: $spacing-medium;
+    gap: $spacing-small;
 
     .search-icon,
     .menu-icon,
     .user-icon,
     .panier-icon {
       display: flex;
-      font-size: $font-size-large;
+      font-size: 2rem;
       color: $primary-color;
       cursor: pointer;
 
@@ -46,7 +47,26 @@ $highlight-color: #3498db;
   }
 }
 
+.wrapper {
+  position: relative;
+  margin-top: 70px;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    font-size: 2.5rem;
+  }
+
+  .icons {
+    gap: $spacing-medium;
+  }
+}
+
 @media (min-width: 1024px) {
+  .navbar-1 {
+    padding: $spacing-medium;
+  }
+
   .menu-icon {
     display: none !important;
   }
