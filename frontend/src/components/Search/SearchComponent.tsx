@@ -1,8 +1,8 @@
 import "./SearchComponent.scss";
 
-interface SearchComponentProps {
+type SearchComponentProps = {
   onCloseSearch: () => void;
-}
+};
 
 export default function SearchComponent({
   onCloseSearch,
