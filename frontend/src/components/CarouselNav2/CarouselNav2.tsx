@@ -1,4 +1,4 @@
-import "./NavbarCarousel.scss";
+import "./CarouselNav2.scss";
 import Slider from "react-slick";
 import {
   BiSearchAlt,

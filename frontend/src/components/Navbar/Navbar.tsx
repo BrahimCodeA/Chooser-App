@@ -1,4 +1,4 @@
-import "./Menu.scss";
+import "./Navbar.scss";
 import { RxCross1 } from "react-icons/rx";
 import { SiJordan } from "react-icons/si";
 import { SiNike } from "react-icons/si";
