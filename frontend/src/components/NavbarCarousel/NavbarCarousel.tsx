@@ -27,7 +27,7 @@ const titles = [
   "Meilleures ventes",
   "Tendances",
   "Offres spéciales",
-  "Produits recommandés",
+  "Produits populaires",
   "Nouveautés",
   "Cadeaux exclusifs",
 ];
@@ -37,21 +37,53 @@ export default function NavbarCarousel() {
     dots: false,
     infinite: true,
     speed: 7500,
-    slidesToShow: 3,
+    slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 0,
     arrows: false,
+    cssEase: "linear",
+    pauseOnHover: true,
+    swipeToSlide: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
     <nav className="navbar-2">
       <Slider {...settings}>
         {icons.map((icon, index) => (
-          <div key={index}>
-            <p className="navbar2-items">
-              {icon} {titles[index % titles.length]}
-            </p>
+          <div key={index} className="navbar2-items">
+            <span>{icon}</span>
+            <h4>{titles[index % titles.length]}</h4>
           </div>
         ))}
       </Slider>
