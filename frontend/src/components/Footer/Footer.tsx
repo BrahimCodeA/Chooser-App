@@ -81,7 +81,7 @@ export default function Footer() {
         </FooterSection>
 
         <div className="footer-bottom">
-          <p>&copy; {date} Chooser. Tous droits réservés.</p>
+          <p>&copy; {date} Choose. Tous droits réservés.</p>
         </div>
       </div>
     </footer>
