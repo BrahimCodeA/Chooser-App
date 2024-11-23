@@ -1,20 +1,8 @@
 import "./Navbar.scss";
 import { RxCross1 } from "react-icons/rx";
-import { SiJordan } from "react-icons/si";
-import { SiNike } from "react-icons/si";
 import NavbarLinks from "../ui/NavbarLinks";
 import BrandNavIcon from "../ui/BrandNavIcon";
-
-const links = [
-  { link: "/men", title: "Homme" },
-  { link: "/women", title: "Femme" },
-  { link: "/kid", title: "Enfant" },
-];
-
-const brands = [
-  { brandIcon: <SiJordan />, brandName: "Jordan" },
-  { brandIcon: <SiNike />, brandName: "Nike" },
-];
+import { links, brands } from "../../constants/navigationData";
 
 export default function MenuComponent({
   onCloseMenu,
