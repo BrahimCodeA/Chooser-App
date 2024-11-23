@@ -1,14 +1,6 @@
 import { SiJordan, SiNike } from "react-icons/si";
-
-type LinkProps = {
-  link: string;
-  title: string;
-};
-
-type BrandProps = {
-  brandIcon: JSX.Element;
-  brandName: string;
-};
+import { LinkProps } from "../types/navbar";
+import { BrandNavbarProps } from "../types/brandNavbar";
 
 export const links: LinkProps[] = [
   { link: "/men", title: "Homme" },
@@ -16,7 +8,7 @@ export const links: LinkProps[] = [
   { link: "/kid", title: "Enfant" },
 ];
 
-export const brands: BrandProps[] = [
+export const brands: BrandNavbarProps[] = [
   { brandIcon: <SiJordan />, brandName: "Jordan" },
   { brandIcon: <SiNike />, brandName: "Nike" },
 ];

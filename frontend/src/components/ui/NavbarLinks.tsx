@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
+import { LinkProps } from "../../types/navbar";
 
-type NavbarLinksProps = {
-  link: string;
-  title: string;
+type NavbarLinksProps = LinkProps & {
   onCloseMenu: () => void;
 };
 
