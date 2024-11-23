@@ -1,37 +1,9 @@
 import "./CarouselNav2.scss";
 import Slider from "react-slick";
-import {
-  BiSearchAlt,
-  BiHeart,
-  BiUser,
-  BiShoppingBag,
-  BiStar,
-  BiBell,
-  BiGift,
-} from "react-icons/bi";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { sliderSettings } from "../../config/sliderSettings";
-
-const icons = [
-  <BiSearchAlt />,
-  <BiHeart />,
-  <BiUser />,
-  <BiShoppingBag />,
-  <BiStar />,
-  <BiBell />,
-  <BiGift />,
-];
-
-const titles = [
-  "Nouvelle collection",
-  "Meilleures ventes",
-  "Tendances",
-  "Offres spéciales",
-  "Produits populaires",
-  "Nouveautés",
-  "Cadeaux exclusifs",
-];
+import { icons, titles } from "../../constants/carousalNav2Data";
 
 export default function NavbarCarousel() {
   return (
