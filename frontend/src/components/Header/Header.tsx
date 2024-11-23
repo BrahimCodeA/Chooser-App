@@ -4,10 +4,10 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { CiShoppingBasket } from "react-icons/ci";
 import { useState, useEffect } from "react";
 import SearchComponent from "../Search/SearchComponent";
-import MenuComponent from "../Menu/MenuComponent";
+import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
 import Modals from "../AuthMenu/AuthMenu";
-import NavbarCarousel from "../NavbarCarousel/NavbarCarousel";
+import CarouselNav2 from "../CarouselNav2/CarouselNav2";
 
 const useIsDesktop = (): boolean => {
   const [isDesktop, setIsDesktop] = useState<boolean>(
@@ -47,7 +47,7 @@ export default function Header() {
 
         {isDesktop && (
           <div className="desktop-menu">
-            <MenuComponent onCloseMenu={handleMenuClick} />
+            <Navbar onCloseMenu={handleMenuClick} />
           </div>
         )}
 
@@ -73,12 +73,12 @@ export default function Header() {
                 onClick={handleMenuClick}
               />
             ) : (
-              <MenuComponent onCloseMenu={handleMenuClick} />
+              <Navbar onCloseMenu={handleMenuClick} />
             ))}
         </div>
       </nav>
 
-      <NavbarCarousel />
+      <CarouselNav2 />
     </header>
   );
 }
