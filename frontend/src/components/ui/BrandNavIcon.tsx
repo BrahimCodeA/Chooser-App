@@ -1,12 +1,9 @@
-type BrandNavIconProps = {
-  brandIcon: JSX.Element;
-  brandName: string;
-};
+import { BrandNavbarProps } from "../../types/brandNavbar";
 
 export default function BrandNavIcon({
   brandIcon,
   brandName,
-}: BrandNavIconProps) {
+}: BrandNavbarProps) {
   return (
     <li className="brand">
       {brandIcon} {brandName}
