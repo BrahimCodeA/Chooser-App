@@ -5,6 +5,7 @@ import { footerDatas } from "../../constants/footerData";
 
 export default function Footer() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const date = new Date();
 
   const handleToggleSection = (section: string) => {
     setActiveSection((prev) => (prev === section ? null : section));
@@ -23,6 +24,10 @@ export default function Footer() {
             {content}
           </FooterSection>
         ))}
+      </div>
+
+      <div className="footer-bottom">
+        <p>&copy; {date.getFullYear()} Choose. Tous droits réservés</p>
       </div>
     </footer>
   );
