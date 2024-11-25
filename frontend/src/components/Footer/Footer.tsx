@@ -13,6 +13,7 @@ export default function Footer() {
 
   return (
     <footer className="footer">
+      <h2>CHOOSE</h2>
       <div className="footer-container">
         {footerDatas.map(({ title, content }, index) => (
           <FooterSection
