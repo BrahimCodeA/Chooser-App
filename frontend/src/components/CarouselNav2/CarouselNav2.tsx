@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { sliderSettings } from "../../config/sliderSettings";
-import { icons, titles } from "../../constants/carousalNav2Data";
+import { icons, titles } from "../../constants/carouselNav2Data";
 
 export default function NavbarCarousel() {
   return (
