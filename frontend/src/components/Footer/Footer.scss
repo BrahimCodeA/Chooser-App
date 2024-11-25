@@ -1,20 +1,20 @@
-$primary-color: #333;
-$secondary-color: white;
-$accent-color: rgba(255, 255, 255, 0.7);
-$transition-duration: 0.5s;
-$footer-padding: 1rem;
-
 .footer {
-  background-color: $primary-color;
-  color: $secondary-color;
+  background-color: #333;
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    padding-top: 1rem;
+    color: whitesmoke;
+  }
 
   &-container {
-    padding: $footer-padding;
+    padding: 1rem;
   }
 
   &-section {
-    padding: $footer-padding;
-    border-bottom: 1px solid $secondary-color;
+    padding: 1rem;
+    border-bottom: 1px solid whitesmoke;
 
     .rubrique {
       display: flex;
@@ -25,6 +25,8 @@ $footer-padding: 1rem;
 
   &-rubrique-title {
     cursor: pointer;
+    color: whitesmoke;
+    font-size: 1.25rem;
   }
 
   &-sous-rubrique {
@@ -32,41 +34,41 @@ $footer-padding: 1rem;
     opacity: 1;
     max-height: 1000px;
     overflow: hidden;
-    transition: max-height $transition-duration ease,
-      opacity $transition-duration ease;
-    color: $accent-color;
+    transition: all 0.8s ease-in-out;
+    font-size: 1rem;
 
     &-hidden {
       opacity: 0;
       max-height: 0;
       overflow: hidden;
-      transition: max-height $transition-duration ease,
-        opacity $transition-duration ease;
     }
   }
 
   &-plus {
-    color: $secondary-color;
     font-size: 1.5rem;
     cursor: pointer;
+    color: whitesmoke;
   }
 
   &-items,
   .footer-links-utils,
   .social-icon {
     font-size: 1.3rem;
-    color: $secondary-color;
+    color: whitesmoke;
   }
 
   &-items {
     display: flex;
     align-items: center;
+    margin: 0.5rem 0;
     gap: 0.5rem;
   }
 
   &-bottom {
     margin-top: 1rem;
+    padding-bottom: 1rem;
     text-align: center;
+    color: whitesmoke;
   }
 }
 
@@ -82,32 +84,10 @@ $footer-padding: 1rem;
 
   .social-icon {
     margin-right: 1rem;
-    color: $secondary-color;
+    color: whitesmoke;
     &:hover {
       opacity: 0.8;
     }
-  }
-}
-
-.footer {
-  font-size: 1.1rem;
-
-  .footer-section {
-    font-size: 1.1rem;
-  }
-
-  .footer-rubrique-title {
-    font-size: 1.4rem;
-  }
-
-  .footer-plus {
-    font-size: 1.25rem;
-  }
-
-  .footer-items,
-  .footer-links-utils,
-  .social-icon {
-    font-size: 1.1rem;
   }
 }
 
@@ -146,6 +126,10 @@ $footer-padding: 1rem;
 @media (min-width: 1024px) {
   .footer {
     font-size: 1.125rem;
+
+    h2 {
+      font-size: 2.5rem;
+    }
 
     .footer-section {
       font-size: 1.3rem;
