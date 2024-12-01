@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Add from "./pages/AddProduct/AddProduct";
-import List from "./pages/ListProduct/List";
+import List from "./pages/ListProduct/ListProduct";
 import Orders from "./pages/Orders/Orders";
 import { useEffect, useState } from "react";
 import Login from "./components/Login/Login";
