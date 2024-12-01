@@ -35,7 +35,7 @@ const addProduct = async (req, res) => {
       description,
       category,
       price: Number(price),
-      bestseller: bestseller === "true",
+      bestseller: bestseller === "false",
       sizes: JSON.parse(sizes),
       isDiscounted: isDiscounted === "true",
       discountAmount: Number(discountAmount),
@@ -65,7 +65,7 @@ const listProducts = async (req, res) => {
     if (category) filter.category = category;
 
     const products = await productModel.find(filter);
-    res.status(200).jsson({ success: true, products });
+    res.status(200).json({ success: true, products });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
