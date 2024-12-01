@@ -94,6 +94,12 @@
   }
 }
 
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
 @media (min-width: 1024px) {
   .product-form {
     width: 800px;
