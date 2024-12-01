@@ -19,6 +19,23 @@ const addProduct = async (req, res) => {
     const image1 = req.files.image1 && req.files.image1[0];
     const image2 = req.files.image2 && req.files.image2[0];
 
+    const requiredFields = { name, description, price, brand, sizes };
+    const missingFields = Object.entries(requiredFields)
+      .filter(([_, value]) => !value)
+      .map(([key]) => key);
+
+    if (
+      missingFields.length === Object.keys(requiredFields).length &&
+      !image1 &&
+      !image2
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Vous devez fournir au moins un champ requis et une image.",
+        requiredFields: Object.keys(requiredFields),
+      });
+    }
+
     const images = [image1, image2].filter((item) => item !== undefined);
 
     let imagesUrl = await Promise.all(
