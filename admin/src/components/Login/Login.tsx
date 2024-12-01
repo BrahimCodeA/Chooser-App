@@ -64,7 +64,7 @@ export default function Login({ setToken }: LoginProps) {
   return (
     <div className="login-container">
       <h1 className="login-title">Admin Panel</h1>
-      <h2 className="login-subtitle">Chooser</h2>
+      <h2 className="login-subtitle">Choose</h2>
       <form onSubmit={onSubmitHandler} className="login-form">
         <div className="form-group">
           <label className="form-label">Email Address</label>
