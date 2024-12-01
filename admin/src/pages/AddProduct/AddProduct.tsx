@@ -14,6 +14,7 @@ import {
 import { backendUrl } from "../../App";
 import "react-toastify/dist/ReactToastify.css";
 import cloudImage from "../../assets/icon-cloud.png";
+import useFormValidation from "../../hooks/useFormValidation";
 
 export default function Add({ token }: { token: string }) {
   const dispatch = useDispatch();
@@ -31,6 +32,17 @@ export default function Add({ token }: { token: string }) {
   const [image1, setImage1] = useState<File | null>(null);
   const [image2, setImage2] = useState<File | null>(null);
 
+  // Appel au hook de validation
+  const { errors, validateForm } = useFormValidation(
+    name,
+    description,
+    price,
+    brand,
+    sizes,
+    image1,
+    image2
+  );
+
   const resetForm = () => {
     setName("");
     setDescription("");
@@ -46,8 +58,18 @@ export default function Add({ token }: { token: string }) {
     setImage2(null);
   };
 
+  const handleDiscountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(e.target.value);
+    setDiscountAmount(isNaN(value) ? 0 : value);
+  };
+
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Validation du formulaire
+    if (!validateForm()) {
+      return; // Si la validation échoue, on arrête l'exécution
+    }
 
     const formData = new FormData();
     formData.append("name", name);
@@ -80,54 +102,58 @@ export default function Add({ token }: { token: string }) {
     }
   };
 
-  const handleDiscountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = Number(e.target.value);
-    setDiscountAmount(isNaN(value) ? 0 : value);
-  };
-
   return (
     <div className="product-form">
       <form onSubmit={onSubmitHandler} className="form">
+        {errors.name && <div className="error-message">{errors.name}</div>}
         <InputField
           type="text"
           value={name}
-          placeholder="Nom du produit"
+          placeholder={errors.name || "Nom du produit"}
           onChange={(e) => setName(e.target.value)}
-          required
         />
+
+        {errors.description && (
+          <div className="error-message">{errors.description}</div>
+        )}
         <TextAreaField
           value={description}
-          placeholder="Description"
+          placeholder={errors.description || "Description"}
           onChange={(e) => setDescription(e.target.value)}
-          required
         />
+
+        {errors.price && <div className="error-message">{errors.price}</div>}
         <InputField
           type="number"
           value={price}
-          placeholder="Prix"
+          placeholder={errors.price || "Prix"}
           onChange={(e) => setPrice(e.target.value)}
-          required
         />
+
         <SelectField
           value={category}
           options={["Homme", "Femme", "Enfant"]}
           onChange={(e) => setCategory(e.target.value)}
         />
+
+        {errors.brand && <div className="error-message">{errors.brand}</div>}
         <InputField
           type="text"
           value={brand}
-          placeholder="Marque"
+          placeholder={errors.brand || "Marque"}
           onChange={(e) => setBrand(e.target.value)}
-          required
         />
+
+        {errors.sizes && <div className="error-message">{errors.sizes}</div>}
         <InputField
           type="text"
           value={sizes.join(", ")}
-          placeholder="Tailles (ex: 36, 42, 44)"
+          placeholder={errors.sizes || "Tailles ex: 36, 42, 44"}
           onChange={(e) =>
             setSizes(e.target.value.split(",").map((size) => size.trim()))
           }
         />
+
         <CheckboxField
           checked={bestseller}
           label="Meilleures ventes"
@@ -150,6 +176,7 @@ export default function Add({ token }: { token: string }) {
           onChange={handleDiscountChange}
           disabled={!isDiscounted}
         />
+
         <div className="form-images">
           <ImageUploader
             image={image1}
@@ -162,6 +189,8 @@ export default function Add({ token }: { token: string }) {
             placeholderImg={cloudImage}
           />
         </div>
+        {errors.image && <div className="error-message">{errors.image}</div>}
+
         <button type="submit" className="form-submit-button">
           Ajouter le produit
         </button>
