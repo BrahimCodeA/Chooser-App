@@ -110,6 +110,7 @@ export default function Add({ token }: { token: string }) {
           value={name}
           placeholder={errors.name || "Nom du produit"}
           onChange={(e) => setName(e.target.value)}
+          required
         />
 
         <InputField
@@ -117,12 +118,14 @@ export default function Add({ token }: { token: string }) {
           value={price}
           placeholder={errors.price || "Prix"}
           onChange={(e) => setPrice(e.target.value)}
+          required
         />
 
         <TextAreaField
           value={description}
           placeholder={errors.description || "Description"}
           onChange={(e) => setDescription(e.target.value)}
+          required
         />
 
         <CheckboxField
@@ -160,6 +163,7 @@ export default function Add({ token }: { token: string }) {
           value={brand}
           placeholder={errors.brand || "Marque"}
           onChange={(e) => setBrand(e.target.value)}
+          required
         />
 
         <InputField
@@ -169,6 +173,7 @@ export default function Add({ token }: { token: string }) {
           onChange={(e) =>
             setSizes(e.target.value.split(",").map((size) => size.trim()))
           }
+          required
         />
 
         <div className="form-images">
