@@ -115,8 +115,10 @@
 }
 
 @media (min-width: 1024px) {
-  form {
-    max-width: 500px;
-    padding: 40px;
+  .login-container {
+    form {
+      max-width: 500px;
+      padding: 40px;
+    }
   }
 }
