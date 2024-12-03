@@ -10,7 +10,7 @@ import {
   CheckboxField,
   SelectField,
   ImageUploader,
-} from "../../components/ui/FormComponents";
+} from "../../components/ui/FormFields";
 import { backendUrl } from "../../App";
 import "react-toastify/dist/ReactToastify.css";
 import cloudImage from "../../assets/icon-cloud.png";
