@@ -1,8 +1,9 @@
-import { useState } from "react";
 import "./Login.scss";
+import { useState } from "react";
 import { backendUrl } from "../../App";
 import axios from "axios";
 import { toast } from "react-toastify";
+import LoginComponent from "../ui/LoginComponent";
 
 type LoginProps = { setToken: (token: string) => void };
 
@@ -11,21 +12,20 @@ export default function Login({ setToken }: LoginProps) {
   const [password, setPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
-  // Fonction de validation
   const validateForm = () => {
     if (!email || !password) {
-      setErrorMessage("Email and Password are required.");
+      setErrorMessage("Remplissez tous les champs.");
       return false;
     }
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
-      setErrorMessage("Please enter a valid email.");
+      setErrorMessage("Adresse email invalide.");
       return false;
     }
 
     if (password.length < 6) {
-      setErrorMessage("Password must be at least 6 characters.");
+      setErrorMessage("Le mot de passe doit contenir au moins 6 caractères.");
       return false;
     }
 
@@ -36,7 +36,6 @@ export default function Login({ setToken }: LoginProps) {
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Validation côté client
     if (!validateForm()) {
       return;
     }
@@ -49,48 +48,48 @@ export default function Login({ setToken }: LoginProps) {
 
       if (response.data.success) {
         setToken(response.data.token);
-        toast.success("Login successful!");
+        toast.success("Connexion réussie");
       } else {
         toast.error(response.data.message);
       }
     } catch (error: any) {
-      console.error("Login error:", error);
+      console.error("Erreur au login", error);
       toast.error(
-        error.response?.data?.message || "An unexpected error occurred"
+        error.response?.data?.message || "Erreur lors de la connexion"
       );
     }
   };
 
+  const labels = ["Adress email", "Mot de passe"];
+  const inputs = [
+    { type: "email", placeholder: "choose@gmail.com", name: "email" },
+    { type: "password", placeholder: "***************", name: "password" },
+  ];
+  const values = {
+    email: email,
+    password: password,
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    if (name === "email") {
+      setEmail(value);
+    } else if (name === "password") {
+      setPassword(value);
+    }
+  };
+
   return (
-    <div className="login-container">
-      <h1 className="login-title">Admin Panel</h1>
-      <h2 className="login-subtitle">Choose</h2>
-      <form onSubmit={onSubmitHandler} className="login-form">
-        <div className="form-group">
-          <label className="form-label">Email Address</label>
-          <input
-            className="form-input"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            type="email"
-            placeholder="email@gmail.com"
-          />
-        </div>
-        <div className="form-group">
-          <label className="form-label">Password</label>
-          <input
-            className="form-input"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            type="password"
-            placeholder="password"
-          />
-        </div>
-        {errorMessage && <div className="error-message">{errorMessage}</div>}
-        <button type="submit" className="login-button">
-          Login
-        </button>
-      </form>
-    </div>
+    <LoginComponent
+      title="Admin Panel"
+      subTitle="Choose"
+      labels={labels}
+      inputs={inputs}
+      values={values}
+      errorMessage={errorMessage}
+      className="login-container"
+      onChange={handleChange}
+      onSubmitHandler={onSubmitHandler}
+    />
   );
 }
