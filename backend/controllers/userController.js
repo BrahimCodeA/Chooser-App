@@ -15,7 +15,10 @@ const loginUser = async (req, res) => {
     if (!user) {
       return res
         .status(400)
-        .json({ success: false, message: "User does not exist" });
+        .json({
+          success: false,
+          message: "Aucun utilisateur trouvé avec ces informations.",
+        });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
@@ -23,7 +26,9 @@ const loginUser = async (req, res) => {
       const token = createToken(user._id);
       res.status(200).json({ success: true, token });
     } else {
-      res.status(400).json({ success: false, message: "Invalid Credentials" });
+      res
+        .status(400)
+        .json({ success: false, message: "Identifiants incorrects" });
     }
   } catch (error) {
     console.error(error);
@@ -36,20 +41,21 @@ const registerUser = async (req, res) => {
     const { name, email, password } = req.body;
     const existsUser = await userModel.findOne({ email });
     if (existsUser) {
-      return res
-        .status(400)
-        .json({ success: false, message: "User Already Exists" });
+      return res.status(400).json({
+        success: false,
+        message: "Un compte existe déjà avec ces informations",
+      });
     }
 
     if (!validator.isEmail(email)) {
       return res
         .status(400)
-        .json({ success: false, message: "Please enter a valid email" });
+        .json({ success: false, message: "Entrez une adresse mail valide" });
     }
     if (password.length < 8) {
       return res.status(400).json({
         success: false,
-        message: "Password must be at least 8 characters",
+        message: "Le mot de passe doit contenir au moins 8 caractères",
       });
     }
 
@@ -83,7 +89,9 @@ const adminLogin = async (req, res) => {
       const token = jwt.sign(email + password, process.env.JWT_SECRET);
       res.status(200).json({ success: true, token });
     } else {
-      res.status(400).json({ success: false, message: "Invalid Credentials" });
+      res
+        .status(400)
+        .json({ success: false, message: "Identifiants incorrects" });
     }
   } catch (error) {
     console.error(error);

@@ -1,4 +1,13 @@
 // Composant pour un champ texte ou numérique
+type InputFieldProps = {
+  type: string;
+  value: string | number;
+  placeholder: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
+  disabled?: boolean;
+};
+
 export const InputField = ({
   type,
   value,
@@ -6,14 +15,7 @@ export const InputField = ({
   onChange,
   required = false,
   disabled = false,
-}: {
-  type: string;
-  value: string | number;
-  placeholder: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  required?: boolean;
-  disabled?: boolean;
-}) => (
+}: InputFieldProps) => (
   <input
     type={type}
     className="form-input"
@@ -26,17 +28,19 @@ export const InputField = ({
 );
 
 // Composant pour une zone de texte
+type TextAreaFieldProps = {
+  value: string;
+  placeholder: string;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  required?: boolean;
+};
+
 export const TextAreaField = ({
   value,
   placeholder,
   onChange,
   required = false,
-}: {
-  value: string;
-  placeholder: string;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  required?: boolean;
-}) => (
+}: TextAreaFieldProps) => (
   <textarea
     className="form-textarea"
     placeholder={placeholder}
@@ -47,15 +51,17 @@ export const TextAreaField = ({
 );
 
 // Composant pour une case à cocher
+type CheckboxFieldProps = {
+  checked: boolean;
+  label: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
 export const CheckboxField = ({
   checked,
   label,
   onChange,
-}: {
-  checked: boolean;
-  label: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}) => (
+}: CheckboxFieldProps) => (
   <label className="form-checkbox-label">
     <input
       type="checkbox"
@@ -68,15 +74,13 @@ export const CheckboxField = ({
 );
 
 // Composant pour un menu déroulant
-export const SelectField = ({
-  value,
-  options,
-  onChange,
-}: {
+type SelectFieldProps = {
   value: string;
   options: string[];
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-}) => (
+};
+
+export const SelectField = ({ value, options, onChange }: SelectFieldProps) => (
   <select className="form-select" value={value} onChange={onChange}>
     {options.map((option) => (
       <option key={option} value={option}>
@@ -87,15 +91,17 @@ export const SelectField = ({
 );
 
 // Composant pour l'upload d'image
+type ImageUploaderProps = {
+  image: File | null;
+  onImageChange: (file: File) => void;
+  placeholderImg: string;
+};
+
 export const ImageUploader = ({
   image,
   onImageChange,
   placeholderImg,
-}: {
-  image: File | null;
-  onImageChange: (file: File) => void;
-  placeholderImg: string;
-}) => (
+}: ImageUploaderProps) => (
   <label className="form-image-upload">
     <img
       src={image ? URL.createObjectURL(image) : placeholderImg}

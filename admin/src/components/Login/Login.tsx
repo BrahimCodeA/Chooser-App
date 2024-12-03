@@ -53,7 +53,7 @@ export default function Login({ setToken }: LoginProps) {
         toast.error(response.data.message);
       }
     } catch (error: any) {
-      console.error("Erreur au login", error);
+      console.error("Erreur lors de la connexion", error);
       toast.error(
         error.response?.data?.message || "Erreur lors de la connexion"
       );
