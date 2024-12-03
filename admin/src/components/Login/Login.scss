@@ -7,7 +7,7 @@
   background-color: #2d2d2d;
   padding: 10px;
 
-  .login-title {
+  h1 {
     color: #fff;
     font-size: 2.5rem;
     margin-bottom: 20px;
@@ -16,7 +16,7 @@
     animation: fadeIn 1s ease-in-out;
   }
 
-  .login-subtitle {
+  h2 {
     color: #bbb;
     font-size: 1.5rem;
     margin-bottom: 30px;
@@ -26,7 +26,7 @@
     opacity: 0.8;
   }
 
-  .login-form {
+  form {
     background-color: #444;
     padding: 20px;
     border-radius: 12px;
@@ -69,7 +69,14 @@
       }
     }
 
-    .login-button {
+    .error-message {
+      color: red;
+      font-weight: 600;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      font-size: 0.9rem;
+    }
+
+    button {
       background-color: #666;
       color: #fff;
       border: none;
@@ -96,11 +103,11 @@
   .login-container {
     padding: 20px;
 
-    .login-title {
-      font-size: 3rem;
+    h1 {
+      font-size: 2rem;
     }
 
-    .login-form {
+    form {
       max-width: 400px;
       padding: 30px;
     }
@@ -108,7 +115,7 @@
 }
 
 @media (min-width: 1024px) {
-  .login-form {
+  form {
     max-width: 500px;
     padding: 40px;
   }
