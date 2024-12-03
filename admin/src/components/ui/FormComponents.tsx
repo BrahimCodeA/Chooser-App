@@ -48,7 +48,12 @@ export const CheckboxField: React.FC<{
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }> = ({ checked, label, onChange }) => (
   <label className="form-checkbox-label">
-    <input type="checkbox" checked={checked} onChange={onChange} />
+    <input
+      type="checkbox"
+      checked={checked}
+      onChange={onChange}
+      className="form-checkbox"
+    />
     {label}
   </label>
 );
