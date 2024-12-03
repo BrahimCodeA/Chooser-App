@@ -104,8 +104,7 @@ export default function Add({ token }: { token: string }) {
 
   return (
     <div className="product-form">
-      <form onSubmit={onSubmitHandler} className="form">
-        {errors.name && <div className="error-message">{errors.name}</div>}
+      <form onSubmit={onSubmitHandler}>
         <InputField
           type="text"
           value={name}
@@ -113,16 +112,6 @@ export default function Add({ token }: { token: string }) {
           onChange={(e) => setName(e.target.value)}
         />
 
-        {errors.description && (
-          <div className="error-message">{errors.description}</div>
-        )}
-        <TextAreaField
-          value={description}
-          placeholder={errors.description || "Description"}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-
-        {errors.price && <div className="error-message">{errors.price}</div>}
         <InputField
           type="number"
           value={price}
@@ -130,28 +119,10 @@ export default function Add({ token }: { token: string }) {
           onChange={(e) => setPrice(e.target.value)}
         />
 
-        <SelectField
-          value={category}
-          options={["Homme", "Femme", "Enfant"]}
-          onChange={(e) => setCategory(e.target.value)}
-        />
-
-        {errors.brand && <div className="error-message">{errors.brand}</div>}
-        <InputField
-          type="text"
-          value={brand}
-          placeholder={errors.brand || "Marque"}
-          onChange={(e) => setBrand(e.target.value)}
-        />
-
-        {errors.sizes && <div className="error-message">{errors.sizes}</div>}
-        <InputField
-          type="text"
-          value={sizes.join(", ")}
-          placeholder={errors.sizes || "Tailles ex: 36, 42, 44"}
-          onChange={(e) =>
-            setSizes(e.target.value.split(",").map((size) => size.trim()))
-          }
+        <TextAreaField
+          value={description}
+          placeholder={errors.description || "Description"}
+          onChange={(e) => setDescription(e.target.value)}
         />
 
         <CheckboxField
@@ -175,6 +146,28 @@ export default function Add({ token }: { token: string }) {
           placeholder="Montant de la remise"
           onChange={handleDiscountChange}
           disabled={!isDiscounted}
+        />
+
+        <SelectField
+          value={category}
+          options={["Homme", "Femme", "Enfant"]}
+          onChange={(e) => setCategory(e.target.value)}
+        />
+
+        <InputField
+          type="text"
+          value={brand}
+          placeholder={errors.brand || "Marque"}
+          onChange={(e) => setBrand(e.target.value)}
+        />
+
+        <InputField
+          type="text"
+          value={sizes.join(", ")}
+          placeholder={errors.sizes || "Tailles ex: 36, 42, 44"}
+          onChange={(e) =>
+            setSizes(e.target.value.split(",").map((size) => size.trim()))
+          }
         />
 
         <div className="form-images">
