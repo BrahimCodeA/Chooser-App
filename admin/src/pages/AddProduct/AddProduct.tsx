@@ -140,6 +140,7 @@ export default function Add({ token }: { token: string }) {
           label="Activer une promotion"
           onChange={(e) => setIsDiscounted(e.target.checked)}
         />
+
         <InputField
           type="number"
           value={discountAmount}
