@@ -1,11 +1,14 @@
 import ModalForm from "../ui/ModalForm/ModalForm";
 
-type Props = {
+type SignInModalsProps = {
   onClose: () => void;
   openSignUp: () => void;
 };
 
-export default function SignInModals({ onClose, openSignUp }: Props) {
+export default function SignInModals({
+  onClose,
+  openSignUp,
+}: SignInModalsProps) {
   return (
     <ModalForm
       onClose={onClose}
