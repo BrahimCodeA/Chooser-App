@@ -14,7 +14,7 @@ import {
 import { backendUrl } from "../../App";
 import "react-toastify/dist/ReactToastify.css";
 import cloudImage from "../../assets/icon-cloud.png";
-import useFormValidation from "../../hooks/useFormValidation";
+import useFormValidation from "../../hooks/useFormValidation.ts";
 
 export default function Add({ token }: { token: string }) {
   const dispatch = useDispatch();
