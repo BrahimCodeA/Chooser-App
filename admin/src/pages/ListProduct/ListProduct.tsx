@@ -1,50 +1,14 @@
 import "./ListProduct.scss";
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
+import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { setProducts, deleteProduct } from "../../redux/productSlice";
-import { backendUrl } from "../../App";
+import { useProductList } from "../../hooks/useProductList";
 import { ToastContainer } from "react-toastify";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { RiChatDeleteFill } from "react-icons/ri";
 import { Button } from "../../components/ui/Button";
 
 export default function List({ token }: { token: string }) {
-  const dispatch = useDispatch();
   const products = useSelector((state: RootState) => state.product.products);
-
-  useEffect(() => {
-    const productList = async () => {
-      try {
-        const response = await axios.get(`${backendUrl}/api/product/list`, {
-          headers: { token },
-        });
-        dispatch(setProducts(response.data.products));
-        console.log(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    productList();
-  }, [dispatch, token]);
-
-  const onDeleteHandler = async (id: string) => {
-    try {
-      const response = await axios.delete(`${backendUrl}/api/product/remove`, {
-        data: { id },
-        headers: { token },
-      });
-
-      dispatch(deleteProduct(id));
-      toast.success("Produit supprimé avec succès");
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const { onDeleteHandler } = useProductList(token);
 
   return (
     <div className="product-list">
