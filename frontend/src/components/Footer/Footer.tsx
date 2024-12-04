@@ -1,7 +1,7 @@
+import "./Footer.scss";
 import { useState } from "react";
 import FooterSection from "../ui/FooterSection";
-import "./Footer.scss";
-import { footerDatas } from "../../constants/footerData";
+import { footerSections } from "../../constants/footerData";
 
 export default function Footer() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -15,7 +15,7 @@ export default function Footer() {
     <footer className="footer">
       <h2>CHOOSE</h2>
       <div className="footer-container">
-        {footerDatas.map(({ title, content }, index) => (
+        {footerSections.map(({ title, content }, index) => (
           <FooterSection
             key={index}
             title={title}
