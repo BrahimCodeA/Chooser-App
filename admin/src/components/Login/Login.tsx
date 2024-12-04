@@ -4,10 +4,13 @@ import { backendUrl } from "../../App";
 import axios from "axios";
 import { toast } from "react-toastify";
 import LoginComponent from "../ui/LoginComponent";
+import { labels, inputs } from "../../constants/loginFormData";
+import { useNavigate } from "react-router-dom";
 
 type LoginProps = { setToken: (token: string) => void };
 
 export default function Login({ setToken }: LoginProps) {
+  const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -49,6 +52,7 @@ export default function Login({ setToken }: LoginProps) {
       if (response.data.success) {
         setToken(response.data.token);
         toast.success("Connexion réussie");
+        navigate("/");
       } else {
         toast.error(response.data.message);
       }
@@ -60,11 +64,6 @@ export default function Login({ setToken }: LoginProps) {
     }
   };
 
-  const labels = ["Adress email", "Mot de passe"];
-  const inputs = [
-    { type: "email", placeholder: "choose@gmail.com", name: "email" },
-    { type: "password", placeholder: "***************", name: "password" },
-  ];
   const values = {
     email: email,
     password: password,
