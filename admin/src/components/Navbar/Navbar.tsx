@@ -1,5 +1,6 @@
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
+import { Button } from "../ui/Button";
 
 export default function Navbar({
   setToken,
@@ -11,9 +12,7 @@ export default function Navbar({
       <Link to="/" className="navbar-link">
         <h2 className="navbar-title">Choose ©</h2>
       </Link>
-      <button className="navbar-logout" onClick={() => setToken("")}>
-        Logout
-      </button>
+      <Button title="Logout" onClick={() => setToken("")} />
     </div>
   );
 }
