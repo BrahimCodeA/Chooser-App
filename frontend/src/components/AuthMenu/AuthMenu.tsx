@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 type ModalType = "signIn" | "signUp" | null;
 
 export default function AuthMenu() {
-  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isHovered, setIsHovered] = useState(false);
   const [activeModal, setActiveModal] = useState<ModalType>(null);
 
   const handleHover = () => setIsHovered(true);
