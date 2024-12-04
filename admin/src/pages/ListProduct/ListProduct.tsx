@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { RiChatDeleteFill } from "react-icons/ri";
+import { Button } from "../../components/ui/Button";
 
 export default function List({ token }: { token: string }) {
   const dispatch = useDispatch();
@@ -77,12 +78,11 @@ export default function List({ token }: { token: string }) {
                     ))}
                 </td>
                 <td>
-                  <button
-                    onClick={() => onDeleteHandler(product._id)}
+                  <Button
                     className="delete-button"
-                  >
-                    <RiChatDeleteFill />
-                  </button>
+                    onClick={() => onDeleteHandler(product._id)}
+                    title={<RiChatDeleteFill />}
+                  />
                 </td>
               </tr>
             ))}
