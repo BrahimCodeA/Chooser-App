@@ -8,7 +8,7 @@ type FooterDataProps = {
   content: JSX.Element;
 };
 
-export const footerDatas: FooterDataProps[] = [
+export const footerSections: FooterDataProps[] = [
   {
     title: "Contact",
     content: (
