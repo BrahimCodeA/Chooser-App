@@ -1,15 +1,14 @@
-import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
 import "./Sidebar.scss";
-import { CiCirclePlus } from "react-icons/ci";
-import { MdOutlineListAlt } from "react-icons/md";
-import { GoChecklist } from "react-icons/go";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import { sidebarLinks } from "../../constants/sidebarLinkData";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
+import { SidebarLink } from "../ui/SidebarLink";
 
-const Sidebar: React.FC = () => {
+const Sidebar = () => {
   const { pathname } = useLocation();
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState(false);
 
   const handleClick = () => {
     setOpen(!open);
@@ -30,41 +29,18 @@ const Sidebar: React.FC = () => {
       </div>
       {open && (
         <div className="sidebar-links">
-          <Link
-            to="/add"
-            className={
-              pathname === "/add" ? "sidebar-link active" : "sidebar-link"
-            }
-            onClick={handleLinkClick}
-          >
-            <p className="sidebar-icon">
-              <CiCirclePlus /> Ajoutez un produit
-            </p>
-          </Link>
-
-          <Link
-            to="/list"
-            className={
-              pathname === "/list" ? "sidebar-link active" : "sidebar-link"
-            }
-            onClick={handleLinkClick}
-          >
-            <p className="sidebar-icon">
-              <MdOutlineListAlt /> Liste des produits
-            </p>
-          </Link>
-
-          <Link
-            to="/orders"
-            className={
-              pathname === "/orders" ? "sidebar-link active" : "sidebar-link"
-            }
-            onClick={handleLinkClick}
-          >
-            <p className="sidebar-icon">
-              <GoChecklist /> Commandes
-            </p>
-          </Link>
+          {sidebarLinks.map((sidebarLink) => (
+            <SidebarLink
+              key={sidebarLink.to}
+              to={sidebarLink.to}
+              className={`sidebar-link ${
+                pathname === sidebarLink.to ? "active" : ""
+              }`}
+              onClick={handleLinkClick}
+              icon={sidebarLink.icon}
+              title={sidebarLink.title}
+            />
+          ))}
         </div>
       )}
     </div>
