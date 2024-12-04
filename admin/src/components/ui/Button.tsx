@@ -1,11 +1,12 @@
 type ButtonProps = {
-  title: string;
+  title: string | JSX.Element;
   onClick: () => void;
+  className?: string;
 };
 
-export const Button = ({ title, onClick }: ButtonProps) => {
+export const Button = ({ title, onClick, className }: ButtonProps) => {
   return (
-    <button className="navbar-logout" onClick={onClick}>
+    <button className={className} onClick={onClick}>
       {title}
     </button>
   );
