@@ -12,7 +12,11 @@ export default function Navbar({
       <Link to="/" className="navbar-link">
         <h2 className="navbar-title">Choose ©</h2>
       </Link>
-      <Button title="Logout" onClick={() => setToken("")} />
+      <Button
+        className="navbar-logout"
+        title="Logout"
+        onClick={() => setToken("")}
+      />
     </div>
   );
 }
