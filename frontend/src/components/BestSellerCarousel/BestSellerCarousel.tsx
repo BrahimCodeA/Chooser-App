@@ -14,7 +14,7 @@ type BestSellerProps = {
 
 export default function BestSellerCarousel() {
   const [products, setProducts] = useState<BestSellerProps[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -27,10 +27,10 @@ export default function BestSellerCarousel() {
         if (response.data && response.data.products) {
           setProducts(response.data.products);
         } else {
-          setError("No products found");
+          setError("Aucun produit trouvé");
         }
       } catch (err: any) {
-        setError(err.message || "An error occurred while fetching products");
+        setError(err.message || "Quelque chose s'est mal passé");
       } finally {
         setLoading(false);
       }
