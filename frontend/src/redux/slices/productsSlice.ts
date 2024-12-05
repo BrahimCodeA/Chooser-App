@@ -10,6 +10,8 @@ type Product = {
   bestseller: boolean;
   category: string;
   stock: number;
+  isDiscounted: boolean;
+  discountAmount: number;
 };
 
 type ProductState = {
