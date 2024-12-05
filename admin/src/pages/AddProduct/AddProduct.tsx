@@ -22,13 +22,13 @@ export default function Add({ token }: { token: string }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState<number | string>("");
-  const [stock, setStock] = useState<boolean>(true);
+  const [stock, setStock] = useState(true);
   const [category, setCategory] = useState("Homme");
   const [brand, setBrand] = useState("");
   const [sizes, setSizes] = useState<string[]>([]);
-  const [bestseller, setBestseller] = useState<boolean>(false);
-  const [isDiscounted, setIsDiscounted] = useState<boolean>(false);
-  const [discountAmount, setDiscountAmount] = useState<number>(0);
+  const [bestseller, setBestseller] = useState(false);
+  const [isDiscounted, setIsDiscounted] = useState(false);
+  const [discountAmount, setDiscountAmount] = useState(0);
   const [image1, setImage1] = useState<File | null>(null);
   const [image2, setImage2] = useState<File | null>(null);
 
@@ -131,7 +131,10 @@ export default function Add({ token }: { token: string }) {
         <CheckboxField
           checked={bestseller}
           label="Meilleures ventes"
-          onChange={(e) => setBestseller(e.target.checked)}
+          onChange={(e) => {
+            console.log("Checkbox clicked:", e.target.checked);
+            setBestseller(e.target.checked);
+          }}
         />
         <CheckboxField
           checked={stock}
