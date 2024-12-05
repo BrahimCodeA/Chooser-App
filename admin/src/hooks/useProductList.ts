@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
-import { setProducts, deleteProduct } from "../redux/productSlice";
+import { setProducts, deleteProduct } from "../redux/slices/productSlice";
 import { backendUrl } from "../App";
 import { toast } from "react-toastify";
 

@@ -2,7 +2,7 @@ import "./AddProduct.scss";
 import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { addProduct } from "../../redux/productSlice";
+import { addProduct } from "../../redux/slices/productSlice.ts";
 import { ToastContainer, toast } from "react-toastify";
 import {
   InputField,
