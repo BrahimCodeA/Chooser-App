@@ -5,24 +5,35 @@ import { setProducts, deleteProduct } from "../redux/slices/productSlice";
 import { backendUrl } from "../App";
 import { toast } from "react-toastify";
 
-export const useProductList = (token: string) => {
+export const useProductList = (
+  token: string,
+  category: string,
+  bestSeller: boolean = false
+) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`${backendUrl}/api/product/list`, {
+        let url = `${backendUrl}/api/product/list`;
+
+        if (category) url += `?category=${category}`;
+        if (bestSeller)
+          url += category ? `&bestseller=true` : `?bestseller=true`;
+
+        const response = await axios.get(url, {
           headers: { token },
         });
+
         dispatch(setProducts(response.data.products));
         console.log(response.data);
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error("Erreur lors du chargement des produits", error);
       }
     };
 
     fetchProducts();
-  }, [dispatch, token]);
+  }, [dispatch, token, category, bestSeller]);
 
   const onDeleteHandler = async (id: string) => {
     try {
