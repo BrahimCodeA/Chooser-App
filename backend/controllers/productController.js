@@ -75,13 +75,13 @@ const addProduct = async (req, res) => {
 
 const listProducts = async (req, res) => {
   try {
-    const { bestseller, category } = req.query;
+    const { category, bestseller } = req.query;
 
     const filter = {};
-    if (bestseller === "true") filter.bestseller = true;
     if (category) filter.category = category;
+    if (bestseller === "true") filter.bestseller = true;
 
-    const products = await productModel.find(filter);
+    const products = await productModel.find(filter).limit(10);
     res.status(200).json({ success: true, products });
   } catch (error) {
     console.error(error);
