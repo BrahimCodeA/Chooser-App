@@ -8,7 +8,7 @@ import { Button } from "../../components/ui/Button";
 
 export default function List({ token }: { token: string }) {
   const products = useSelector((state: RootState) => state.product.products);
-  const { onDeleteHandler } = useProductList(token);
+  const { onDeleteHandler } = useProductList(token, "", false);
 
   return (
     <div className="product-list">
