@@ -1,65 +1,47 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 type Product = {
   _id: string;
   name: string;
-  image: string[];
   description: string;
   price: number;
-  bestseller: boolean;
+  stock: boolean;
   category: string;
-  stock: number;
+  brand: string;
+  sizes: string[];
+  bestseller: boolean;
   isDiscounted: boolean;
   discountAmount: number;
+  image: string[];
 };
 
 type ProductState = {
   products: Product[];
-  loading: boolean;
-  error: string | null;
 };
 
-// État initial
 const initialState: ProductState = {
   products: [],
-  loading: false,
-  error: null,
 };
 
-export const fetchBestSellerProducts = createAsyncThunk(
-  "products/fetchBestSellerProducts",
-  async (_, { rejectWithValue }) => {
-    try {
-      const response = await axios.get("/api/product/list?bestseller=true");
-      return response.data.products;
-    } catch (error: any) {
-      return rejectWithValue(
-        error.response?.data?.message || "Une erreur est survenue"
-      );
-    }
-  }
-);
-
 const productSlice = createSlice({
-  name: "products",
+  name: "product",
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchBestSellerProducts.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchBestSellerProducts.fulfilled, (state, action) => {
-        state.loading = false;
-        state.products = action.payload;
-      })
-      .addCase(fetchBestSellerProducts.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload as string;
-      });
+  reducers: {
+    addProduct(state, action: PayloadAction<Product>) {
+      state.products.push(action.payload);
+    },
+
+    deleteProduct(state, action: PayloadAction<string>) {
+      state.products = state.products.filter(
+        (product) => product._id !== action.payload
+      );
+    },
+
+    setProducts(state, action: PayloadAction<Product[]>) {
+      state.products = action.payload;
+    },
   },
 });
 
+export const { addProduct, deleteProduct, setProducts } = productSlice.actions;
 export default productSlice.reducer;
