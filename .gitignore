@@ -1,0 +1,18 @@
+# Ignore les fichiers de configuration de pnpm
+pnpm-lock.yaml
+pnpm-workspace.yaml
+
+# Ignore les répertoires node_modules
+node_modules/
+.pnpm/
+
+# Ignore les fichiers de configuration de VS Code
+.vscode/
+
+# Ignore les fichiers générés par build
+dist/
+build/
+
+# Ignore les fichiers temporaires
+*.log
+*.tmp
