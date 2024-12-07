@@ -1,7 +1,10 @@
 import "./ListProduct.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { useProductList } from "../../hooks/useProductList";
+
+import { useProductList } from "@/hooks/useProductList";
+// import { useProductList } from "@hooks/useProductList";
+
 import { ToastContainer } from "react-toastify";
 import { RiChatDeleteFill } from "react-icons/ri";
 import { Button } from "../../components/ui/Button";
